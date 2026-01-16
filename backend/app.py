@@ -4,7 +4,14 @@ from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(
+    app,
+    resources={r"/*": {"origins": [
+        "https://onboardly-45.vercel.app"
+    ]}},
+    supports_credentials=True
+)
+
 
 @app.before_request
 def debug_request():
