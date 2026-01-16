@@ -1,16 +1,15 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from dotenv import load_dotenv
+load_dotenv()
 import os
 
 app = Flask(__name__)
-CORS(
-    app,
-    resources={r"/leads": {"origins": "https://onboardly-45.vercel.app"}},
-    methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["Content-Type"]
-)
-
+CORS(app, resources={
+    r"/leads": {"origins": ["http://localhost:5173","https://onboardly-45.vercel.app"]},
+    r"/health": {"origins": "*"}
+})
 
 @app.before_request
 def debug_request():
@@ -49,14 +48,10 @@ class Lead(db.Model):
 # ================================
 # Routes
 # ================================
-@app.route("/leads", methods=["OPTIONS"])
-def leads_options():
-    return "", 204
-
 @app.route("/leads", methods=["POST"])
 def create_lead():
     try:
-        data = request.get_json(force=True)
+        data = request.get_json()
 
         if not all(k in data for k in ("name", "email", "phone")):
             return jsonify({"error": "Missing required fields"}), 400
