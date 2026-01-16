@@ -6,10 +6,9 @@ import os
 app = Flask(__name__)
 CORS(
     app,
-    resources={r"/*": {"origins": [
-        "https://onboardly-45.vercel.app"
-    ]}},
-    supports_credentials=True
+    resources={r"/leads": {"origins": "https://onboardly-45.vercel.app"}},
+    methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"]
 )
 
 
@@ -50,6 +49,10 @@ class Lead(db.Model):
 # ================================
 # Routes
 # ================================
+@app.route("/leads", methods=["OPTIONS"])
+def leads_options():
+    return "", 204
+
 @app.route("/leads", methods=["POST"])
 def create_lead():
     try:
