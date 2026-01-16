@@ -1,0 +1,59 @@
+// components/Footer.jsx
+import React from 'react';
+
+const Footer = () => {
+  return (
+    <footer className="relative border-t border-gray-800/50 mt-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div className="flex items-center space-x-2 mb-4">
+              <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded"></div>
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                OnBoardly
+              </span>
+            </div>
+            <p className="text-gray-500">
+              The complete platform for launching and scaling startups.
+            </p>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Product</h4>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Connect</h4>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="pt-8 border-t border-gray-800/50 text-center">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} OnBoardly. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
