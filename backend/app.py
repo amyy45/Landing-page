@@ -32,3 +32,6 @@ def create_lead():
 @app.route('/')
 def home():
     return "API is running!"
+
+with app.app_context():
+    db.create_all()
