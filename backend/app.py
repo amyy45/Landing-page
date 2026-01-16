@@ -11,23 +11,23 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class Item(db.Model):
+class Lead(db.Model):
     id=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String(100), nullable=False)
     email=db.Column(db.String(120), nullable=False)
     phone =db.Column(db.String(20), nullable=False)
 
 @app.route('/', methods=['POST'])
-def create_item():
+def create_lead():
     data = request.json
-    item = Item(
+    lead = Lead(
         name=data['name'],
         email=data['email'],
         phone=data['phone']
     )
-    db.session.add(item)
+    db.session.add(lead)
     db.session.commit()
-    return jsonify({'message': 'Item created Successfully'}), 201
+    return jsonify({'message': 'Lead created Successfully'}), 201
 
 @app.route('/')
 def home():
