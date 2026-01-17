@@ -93,6 +93,18 @@ lead-capture-app/
 
 ---
 
+## Screenshots
+
+### Landing Page
+![Landing Page](screenshots/landing-page.png)
+
+### Lead Submission
+![Form Submission](screenshots/form-submission.png)
+
+### Database Record
+![Database Entry](screenshots/database-entry.png)
+
+---
 ## Verification
 
 * Form submissions trigger API requests
